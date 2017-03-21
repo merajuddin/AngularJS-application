@@ -1,0 +1,30 @@
+	
+
+{
+	"mydata": [{
+		"id": 1,
+		"State": "Ca",
+		"city": "San Jose"
+	}, {
+		"id": 2,
+		"State": "IL",
+		"city": "Chicago"
+	}, {
+		"id": 3,
+		"State": "LO",
+		"city": "Los Angeles"
+	}, {
+		"id": 4,
+		"State": "DC",
+		"city": "Seattle"
+	}, {
+		"id": 5,
+		"State": "TX",
+		"city": "Dallas"
+	}],
+
+"navdata": ["Home", "About", "Contact Us", "Services"]
+
+}
+
+
