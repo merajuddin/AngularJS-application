@@ -1,0 +1,94 @@
+<div class="panel panel-default" ng-controller="tablecontroller">
+
+
+
+  <!-- Default panel contents -->
+  <div class="panel-heading">PRO-TEK Branches</div>
+  <div class="panel-body">
+
+<form class="form-group">
+<my-search></my-search>
+</form>
+
+
+
+    <!-- Table -->
+  <table class="table table-bordered table-hover">
+  	<tr>
+  		<th>#</th>
+  		<th>State</th>
+  		<th>City</th>
+  		<th>Remove/Edit</th>
+  		
+  	</tr>
+  	<tr ng-repeat="branch in protekBranches | filter: query" >
+  		<td>{{$index}}</td>
+  		<td>{{branch.State | uppercase | searchFilter}}</td>
+  		<td>{{branch.city | uppercase}}</td>
+  		<td><button class="btn btn-danger" ng-click="deleteItem($index)">Delete</button>
+  		<button class="btn btn-primary" ng-click="Edit()">Edit</button></td>
+  	</tr>
+  </table>
+  </div>
+  <div class="panel-footer">
+  	<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Add a Branch</button>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add PRO-TEK Branches</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+        	<label>State:</label><input type="text" ng-model="State" class="form-control"><br>
+        	<label>City:</label><input type="text" ng-model="city" class="form-control">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="addRow()">Create Branch</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div> 
+</div>
+
+
+
+<div class="container" ng-controller="tablecontroller">
+    <h2>ToDo App</h2>
+        <div class="form">
+        <div class="input-group">
+          <input type="text" class="form-control" ng-model="task">
+                    <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="addTask()"><span
+              class="glyphicon glyphicon-plus"></span> Add Task</button>
+          </span>
+        </div><!-- /input-group -->
+      </div>
+      <hr/>
+      <!-- Form Ends Here -->
+
+      <!-- Task List Starts Here -->
+      <ul class="list-group" ng-show="tasks.length > 0">
+        <li class="list-group-item clearfix " ng-repeat="todo in tasks" ng-class="{disabled: todo.done}"> 
+          <p class="lead">{{todo.task}}</p>
+          <div>
+            <span class="pull-right">
+              <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" 
+                ng-click="editTask($index)"></span></button>
+              <button class="btn btn-primary btn-xs" ng-show="!todo.done"><span class="glyphicon glyphicon-ok" 
+                ng-click="doneTask($index)"></span></button>
+              <button class="btn btn-primary btn-xs" ng-show="todo.done"><span class="glyphicon glyphicon-repeat" 
+                ng-click="unDoneTask($index)"></span></button>
+              <button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove" 
+                ng-click="deleteTask($index)"></span></button>
+            </span>
+          </div>
+        </li>
+      </ul>
+</div>

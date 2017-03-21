@@ -1,0 +1,76 @@
+
+<div class="container">
+	<form class="form-horizontal" id="payForm" name="payForm" novalidate>
+
+	<div class="form-group">
+	    <label class="control-label">First Name:</label>
+	     <input name="firstname" type="text" class="form-control" ng-model="firstname" placeholder="First Name (The field will only be valid if the value contains 'Mohammed or MOHAMMED or Mohammed')" required ng-maxlength="12" ng-minlength="2" my-validation/>
+		    <span style="color: red" ng-if='payForm.firstname.$dirty && payForm.firstname.$invalid'> First Name should be either Mohammed or mohammed or MOHAMMED! Thank you.<br>
+		    <span ng-if="payForm.firstname.$error.required && payForm.firstname.$touched">First Name should not be Empty!</span>
+		    <span ng-if="payForm.firstname.$error.maxlength"> (Name should be only 12 characters!) </span>
+		    <span ng-if="payForm.firstname.$error.minlength"> (Name should be atleast 2 characters long!) </span>
+		    </span>
+	      	<span class="text text-success" ng-show="payForm.firstname.$valid">WOW! Your Name "{{firstname}}" MATCHES My First Name!</span>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label">Last Name:</label>
+	     <input name="lastname" type="text" class="form-control" ng-model="lastname" placeholder="Last Name" ng-maxlength="12" ng-minlength="2" required>
+	     <span style="color:red" ng-show="payForm.lastname.$dirty && payForm.lastname.$invalid">
+		 <span ng-show="payForm.lastname.$error.required && payForm.lastname.$touched">Last Name should not be Empty.</span>
+		 <span ng-show="payForm.lastname.$error.maxlength">Name should only be 12 characters long!</span>
+		 <span ng-show="payForm.lastname.$error.minlength">Name should be atleast 2 characters long!</span>
+		 </span>
+
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label">Email:</label>
+	    <input type="email" name="email" class="form-control" placeholder="Email" ng-model="email" required>
+	      <span style="color:red" ng-show="payForm.email.$dirty && payForm.email.$invalid">
+		  <span ng-show="payForm.email.$error.required && payForm.email.$touched">Email is Required!.</span>
+		  <span ng-show="payForm.email.$error.email">Invalid Email address.</span>
+		  </span>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label">Phone:</label>
+	     <input type="text" name="phone" class="form-control" placeholder="Phone Number" ng-model="phone"  ng-minlength="10" ng-maxlength="10" require ng-pattern= "/^\(?(\d{3})\)?[ .-]?(\d{3})[ .-]?(\d{4})$/" required>
+	     <span style="color: red" ng-show="payForm.phone.$dirty && payForm.phone.$invalid">	
+	     <span ng-show=" payForm.phone.$error.required && payForm.phone.$touched"> Valid phone number is required! </span>
+         <span ng-show="((payForm.phone.$error.minlength || payForm.phone.$error.maxlength) && payForm.phone.$dirty)"> phone number should be 10 digits </span>
+         </span>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label">Credit Card:</label>
+	     <input type="number" name="card" class="form-control" placeholder="Credit Card Information" ng-model="card" ng-minlength="16" ng-maxlength="16" required>
+	     <span style="color: red" ng-show="payForm.card.$dirty && payForm.card.$invalid">	
+	      <span ng-show=" payForm.card.$error.required && payForm.card.$touched"> Valid Credit Card number is required! </span>
+          <span ng-show="((payForm.card.$error.minlength || payForm.card.$error.maxlength) && payForm.card.$dirty)"> Credit card number should be 16 digits. </span>
+          </span>
+	</div>
+
+	<div class="form-group">
+	    <label><input type="checkbox" required ng-model="checkbox"><span ng-hide="checkbox"> Agree </label><span ng-show="checkbox" class="text-success"> You Agreed </span>
+	</div>
+
+	<div class="form-group" required>
+	    <label><input type="radio" ng-model="radio" value="1">1</label>
+	    <label><input type="radio" ng-model="radio" value="2">2</label>
+	    <label><input type="radio" ng-model="radio" value="3">3</label>
+	    <label><input type="radio" ng-model="radio" value="">none</label><br>
+	    <span ng-switch="radio">
+	    <span ng-switch-when="1" class="text-success">YOU SELECTED 1</span>
+	    <span ng-switch-when="2" class="text-success">YOU SELECTED 2</span>
+	    <span ng-switch-when="3" class="text-success">YOU SELECTED 3</span>
+	    </span>
+	</div>
+
+
+	<div class="form-group">
+      	<label><input type="button" name="submit" ng-model="submit" ng-disabled="payForm.$invalid" class="btn btn-default" value="Submit"></label>
+    </div>
+
+	</form>
+</div>
