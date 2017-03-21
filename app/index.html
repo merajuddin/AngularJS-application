@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+				<!-- Jquery CDN -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+				<!-- Bootstrap Files-->
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+				<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+			<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="main.css">
+			<!-- Angular -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+			<!-- main modules-->
+	<script src="app.js"></script>
+	
+			<!-- module files-->
+	<script src="controllers/controllersmodule.js"></script>
+	<script src="Header/headermodule.js"></script>
+	<script src="Table/tablemodule.js"></script>
+	<script src="common/commonmodule.js"></script>
+
+			<!-- directives -->
+	<script src="Header/headerdirective.js"></script>
+	<script src="Table/searchdirective.js"></script>
+	<script src="Form/formdirective.js"></script>
+	<script src="Table/filter.js" ></script>
+
+			<!--services-->
+	<!-- <script src="Table/tablefactory.js"></script> -->
+	<!-- <script src="Table/tableservice.js"></script> -->
+	<script src="common/commonservice.js"></script>
+	<!-- <script src="Header/headerservice.js"></script> -->
+
+			<!--Controller Files-->
+	<script src="controllers/firstcontroller.js"></script>
+	<script src="controllers/secondcontroller.js"></script>
+	<script src="Header/headercontroller.js"></script>
+	<script src="Table/tablecontroller.js"></script>
+
+</head>
+<body class="container">
+	<div class="wrapper" ng-app="myfirstapp">
+
+		<div ng-include="'Header/headerpartial.html'"></div>
+		<div ng-include="'Table/tablepartial.html'"></div>
+		<div ng-include="'Form/formpartial.html'"></div>
+		
+ 
+		
+
+
+<!--
+		<div ng-controller="firstController">
+			<p>change the color of the input field according to its value:</p>
+			<div ng-init="myColor='blue'">
+			<input style="background-color: {{myColor}}" ng-model="myColor" value="{{myColor}}">
+			</div>
+			<h1 ng-hide="true">hello world!</h1>
+			<label>First Name:</label>
+			<input type="text" ng-model="firstName">
+			<label>Last Name:</label>
+			<input type="text" ng-model="lastName">
+			<input type="checkbox" ng-model="mycheckbox">
+			{{mycheckbox}}
+			<p>{{firstName}} {{lastName}}</p>
+
+			<ul>
+				<li ng-repeat="list in myshoppinglist"> {{list}} </li>
+			</ul>
+
+			<table ng-show="showmytable">
+				<tr ng-repeat = "(key, value) in myinfo">
+					<td>{{key}}</td>
+					<td>{{value}}</td>
+					
+				</tr>
+			</table>
+			<button ng-click="hidetable()">Hide my table</button>
+			<button ng-click="showtable()">Show my table</button>
+		</div>
+		
+		<div ng-controller="secondCtrl">
+			
+				{{firstName}}
+
+		</div>-->
+
+
+	</div>
+		
+	
+
+
+
+	
+</body>
+</html>
